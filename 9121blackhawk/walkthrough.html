@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blackhawk.css">
+    <title>Walkthrough photos</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #photos {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #photos img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+        }
+        .arrow.left {
+            left: 0;
+        }
+        .arrow.right {
+            right: 0;
+        }
+
+    </style>
+    <script>
+        var images = [
+        "IMG_5615.jpeg",
+        "IMG_5616.jpeg",
+        "IMG_5617.jpeg",
+        "IMG_5618.jpeg",
+        "IMG_5619.jpeg",
+        "IMG_5620.jpeg",
+        "IMG_5621.jpeg",
+        "IMG_5622.jpeg",
+        "IMG_5623.jpeg",
+        "IMG_5624.jpeg",
+        "IMG_5625.jpeg",
+        "IMG_5626.jpeg",
+        "IMG_5627.jpeg",
+        "IMG_5628.jpeg",
+        "IMG_5629.jpeg",
+        "IMG_5630.jpeg",
+        "IMG_5631.jpeg",
+        "IMG_5632.jpeg",
+        "IMG_5633.jpeg",
+        "IMG_5634.jpeg",
+        "IMG_5635.jpeg",
+        "IMG_5636.jpeg",
+        "IMG_5637.jpeg",
+        "IMG_5638.jpeg",
+        "IMG_5639.jpeg",
+        "IMG_5640.jpeg",
+        "IMG_5641.jpeg",
+        "IMG_5642.jpeg",
+        "IMG_5643.jpeg",
+        "IMG_5644.jpeg",
+        "IMG_5645.jpeg",
+        "IMG_5646.jpeg",
+        "IMG_5647.jpeg",
+        "IMG_5648.jpeg",
+        "IMG_5649.jpeg",
+        "IMG_5650.jpeg",
+        "IMG_5651.jpeg",
+        "IMG_5652.jpeg",
+        "IMG_5653.jpeg",
+        "IMG_5654.jpeg",
+        "IMG_5655.jpeg",
+        "IMG_5656.jpeg",
+        "IMG_5657.jpeg",
+        "IMG_5658.jpeg",
+        "IMG_5659.jpeg",
+        "IMG_5660.jpeg",
+        "IMG_5661.jpeg",
+        "IMG_5662.jpeg",
+        "IMG_5663.jpeg",
+        "IMG_5664.jpeg",
+        "IMG_5665.jpeg",
+        "IMG_5666.jpeg",
+        "IMG_5667.jpeg",
+        "IMG_5668.jpeg",
+        "IMG_5670.jpeg",
+        "IMG_5671.jpeg",
+        "IMG_5672.jpeg",
+        "IMG_5673.jpeg",
+        "IMG_5674.jpeg",
+        "IMG_5675.jpeg",
+        "IMG_5676.jpeg",
+        "IMG_5677.jpeg",
+        "IMG_5678.jpeg",
+        "IMG_5679.jpeg",
+        "IMG_5680.jpeg",
+        "IMG_5681.jpeg",
+        "IMG_5682.jpeg",
+        "IMG_5683.jpeg",
+        "IMG_5684.jpeg",
+        "IMG_5685.jpeg",
+        "IMG_5686.jpeg",
+        "IMG_5687.jpeg",
+        "IMG_5688.jpeg",
+        "IMG_5689.jpeg",
+        "IMG_5690.jpeg",
+        "IMG_5691.jpeg",
+        "IMG_5692.jpeg",
+        "IMG_5693.jpeg",
+        "IMG_5694.jpeg",
+        "IMG_5695.jpeg",
+        "IMG_5696.jpeg",
+        "IMG_5697.jpeg",
+        "IMG_5698.jpeg",
+        "IMG_5699.jpeg",
+        "IMG_5700.jpeg",
+        "IMG_5701.jpeg",
+        "IMG_5702.jpeg",
+        "IMG_5703.jpeg",
+        "IMG_5704.jpeg",
+        "IMG_5705.jpeg",
+        "IMG_5706.jpeg",
+        "IMG_5707.jpeg",
+        "IMG_5708.jpeg",
+        "IMG_5709.jpeg",
+        "IMG_5710.jpeg",
+        "IMG_5711.jpeg",
+        "IMG_5712.jpeg",
+        "IMG_5713.jpeg",
+        "IMG_5714.jpeg",
+        "IMG_5715.jpeg",
+        "IMG_5716.jpeg",
+        "IMG_5717.jpeg",
+        "IMG_5718.jpeg",
+        "IMG_5719.jpeg",
+        "IMG_5720.jpeg",
+        "IMG_5721.jpeg",
+        "IMG_5722.jpeg",
+        "IMG_5723.jpeg",
+        "IMG_5724.jpeg",
+        "IMG_5725.jpeg",
+        "IMG_5726.jpeg",
+        "IMG_5727.jpeg",
+        "IMG_5728.jpeg",
+        "IMG_5729.jpeg",
+        "IMG_5730.jpeg",
+        "IMG_5731.jpeg",
+        "IMG_5732.jpeg",
+        "IMG_5733.jpeg",
+        "IMG_5734.jpeg",
+        "IMG_5735.jpeg",
+        "IMG_5736.jpeg",
+        "IMG_5737.jpeg",
+        "IMG_5738.jpeg",
+        "IMG_5739.jpeg",
+        "IMG_5740.jpeg",
+        "IMG_5741.jpeg",
+        "IMG_5742.jpeg",
+        "IMG_5743.jpeg",
+        "IMG_5744.jpeg",
+        "IMG_5745.jpeg",
+        "IMG_5746.jpeg",
+        "IMG_5747.jpeg",
+        "IMG_5748.jpeg",
+        "IMG_5749.jpeg",
+        "IMG_5750.jpeg",
+        "IMG_5751.jpeg",
+        "IMG_5752.jpeg",
+        "IMG_5753.jpeg",
+        "IMG_5754.jpeg",
+        "IMG_5755.jpeg",
+        ];
+
+        let currentIndex = 0;
+
+        function showPhoto(index) {
+            const photoElement = document.getElementById('current-photo');
+            photoElement.src = `walkthruimages/${images[index]}`;
+        }
+
+        function prevPhoto() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showPhoto(currentIndex);
+        }
+
+        function nextPhoto() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showPhoto(currentIndex);
+        }
+    </script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Pre-closing walkthrough photos, Oct 17, 2024</h2>
+
+    <div id="photos">
+        <span class="arrow left" onclick="prevPhoto()">&#9664;</span>
+        <img id="current-photo" src="" alt="Walkthrough Photo">
+        <span class="arrow right" onclick="nextPhoto()">&#9654;</span>
+    </div>
+
+    <script>
+        showPhoto(0);
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

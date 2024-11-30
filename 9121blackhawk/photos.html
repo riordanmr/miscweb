@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blackhawk.css">
+    <title>9121 Blackhawk Photos</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Photos</h2>
+    <div>
+        <p><a href="https://www.realtor.com/realestateandhomes-detail/M7803141382">Photos on Realtor.com</a></p>
+        <p><a href="walkthrough.html">Pre-closing walkthrough, Oct 17, 2024</a></p>
+        <p><a href="images20241127.html">Photos taken by JC on Nov 27, 2024</a></p>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blackhawk.css">
+    <title>Photos on 27 Nov 2024</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #photos {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #photos img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+        }
+        .arrow.left {
+            left: 0;
+        }
+        .arrow.right {
+            right: 0;
+        }
+        .index-center {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+    </style>
+    <script>
+        var images = [
+            "IMG_5842.jpeg",
+            "IMG_5843.jpeg",
+            "75443591893__B94B2864-B270-43B9-A846-BDA97EC0A562.jpeg",
+            "75443621117__EBC24460-CE5A-40F5-BD1C-267C78FDA27F.jpeg",
+            "75443661760__BBF33A61-BD7F-46DB-A0BC-045BBF5041EF.jpeg",
+            "75443663498__B98D1904-FEFC-49EE-94DE-DDF94AAA6E17.jpeg",
+            "75443664438__1BA3016B-4D56-4501-ADA4-4F34354BFE88.jpeg",
+            "75443669450__A8287E48-9E03-4A5D-8D5D-D25A983F17D0.jpeg",
+            "75443672541__533C205B-F901-49EF-B1C2-F5B1FE8A6F80.jpeg",
+            "75443674114__483D984B-9478-4FC6-9528-B4C8B4F1E038.jpeg",
+            "75443718314__EB22BE81-4C64-4BEA-B71A-B009A2E6D6BC.jpeg",
+            "75443719809__04C74682-53B0-494D-B186-1498224055A6.jpeg",
+            "75443740517__04BE82A1-BFCD-4AC6-9247-19C7BBB100C4.jpeg"
+        ];
+
+        let currentIndex = 0;
+
+        function showPhoto(index) {
+            const photoElement = document.getElementById('current-photo');
+            photoElement.src = `images20241127/${images[index]}`;
+            const photoIndexElement = document.getElementById('photo-index');
+            photoIndexElement.textContent = `${index + 1} / ${images.length}`;
+        }
+
+        function prevPhoto() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showPhoto(currentIndex);
+        }
+
+        function nextPhoto() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showPhoto(currentIndex);
+        }
+    </script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Photos taken by JC on Nov 27, 2024</h2>
+
+    <div id="photos">
+        <span class="arrow left" onclick="prevPhoto()">&#9664;</span>
+        <img id="current-photo" src="" alt="Walkthrough Photo">
+        <span class="arrow right" onclick="nextPhoto()">&#9654;</span>
+    </div>
+    <div id="photo-index" class="index-center"></div>
+
+    <script>
+        showPhoto(0);
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

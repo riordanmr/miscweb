@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blackhawk.css">
+    <title>9121 Blackhawk Videos</title>
+    <style>
+        .video-container {
+            display: none;
+            width: 100%;
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Videos</h2>
+    <script>
+        function ShowVideo(videoId) {
+            const inside = document.getElementById('inside');
+            const outside = document.getElementById('outside');
+            if (videoId === 'inside') {
+                inside.style.display = 'block';
+                outside.style.display = 'none';
+            } else {
+                inside.style.display = 'none';
+                outside.style.display = 'block';
+            }
+        }
+    </script>
+    <div>
+        <a class="link-style" onclick="ShowVideo('inside')">Interior walkthrough video</a>
+        <br/>
+        <a class="link-style" onclick="ShowVideo('outside')">Exterior walkthrough video</a>
+        <br/>
+        <video id="inside" class="video-container" controls>
+            <source src="videos/9121BlackhawkInside.MOV" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <br/>
+        <video id="outside" class="video-container" controls>
+            <source src="videos/9121BlackhawkOutside.MOV" type="video/mp4">
+            Your browser does not support the video tag.
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+
+    </script>
+</body>
+</html>

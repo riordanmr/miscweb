@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blackhawk.css">
+    <title>9121 Blackhawk Floor Plans</title>
+    <style>
+        #upstairs {
+            display: none;
+            width: 100%;
+        }
+        #downstairs {
+            display: none;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Floor plans</h2>
+    <div>
+        <script>
+            function ShowFloorPlan(floorPlanId) {
+                const upstairs = document.getElementById('upstairs');
+                const downstairs = document.getElementById('downstairs');
+                if (floorPlanId === 'upstairs') {
+                    upstairs.style.display = 'block';
+                    downstairs.style.display = 'none';
+                } else {
+                    upstairs.style.display = 'none';
+                    downstairs.style.display = 'block';
+                }
+            }
+        </script>
+        <a class="link-style" onclick="ShowFloorPlan('upstairs')">Upstairs</a>
+        <br/>
+        <a class="link-style" onclick="ShowFloorPlan('downstairs')">Downstairs</a>
+        <br/>
+        <img id="upstairs" src="images/820-9121BlackhawkMainLevelFloorPlanInv.png" alt="Main level">
+        <br/>
+        <img id="downstairs" src="images/810-9121BlackhawkBasementFloorPlanInv.jpeg" alt="Lower level" >
+        
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

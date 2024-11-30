@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blackhawk.css">
+    <title>9121 Blackhawk Home</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>9121 Blackhawk Rd, Middleton, WI  53562</h2>
+    <div>
+        <p>
+        This site contains information about the property at 9121 Blackhawk Rd, Middleton, WI  53562.
+        Its main purpose is to provide information to tradespeople working on the property.
+        </p>
+        <p>
+        Use the navigation links above to access various parts of the site.
+        </p>
+        <p><em>Mark Riordan &nbsp; October 2024</em></p>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>
