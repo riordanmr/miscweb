@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="elcam.css">
+    <title>Utility bills</title>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <div>
+      <h2>Monthly utility bills</h2>
+      <p>Below is a summary of the average monthly utility bills for the
+        property at 548 El Camino Rd, Sedona AZ 86336, as of September 2024. 
+        Not all bills are
+        actually monthly; in these cases, the amounts are calculated by dividing
+        the average yearly expenses (over several years) by 12. </p>
+      <table style="border-collapse: collapse;">
+        <tbody>
+          <tr>
+            <td> <strong>Service</strong> </td>
+            <td> <strong>Provider</strong> </td>
+            <td> <strong>$/mo</strong> </td>
+            <td> <strong>Notes</strong></td>
+          </tr>
+          <tr>
+            <td> Electricity </td>
+            <td> APS </td>
+            <td class="amount"> 50 </td>
+            <td> In October 2024, the two furnace/AC units were replaced by more efficient
+                Lennox units. The Lennox furnaces are dual-fuel: electric heat pump, 
+                with propane as a backup. It's anticipated that the new units will use less 
+                electricity when the air-conditioning is on, but more when the 
+                heat pumps are on. </td>
+          </tr>
+          <tr>
+            <td> Propane </td>
+            <td> Ferrellgas </td>
+            <td class="amount"> 183 </td>
+            <td> Propane use should be reduced with the new Lennox heat pump furnaces.</td>
+          </tr>
+          <tr>
+            <td> Water </td>
+            <td>
+              <div> Arizona Water Co </div>
+            </td>
+            <td class="amount"> 126 </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td> Sewer </td>
+            <td> City of Sedona </td>
+            <td class="amount"> 49 </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td> Internet (300 Mbps) </td>
+            <td> Optimum </td>
+            <td class="amount"> 40 </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td> Trash and Recycling </td>
+            <td> Taylor Waste </td>
+            <td class="amount"> 32 </td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div> <strong>Total monthly utilities</strong> </div>
+            </td>
+            <td> <br>
+            </td>
+            <td class="amount"> <strong>480</strong> </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>In the case of electricity bills, note that the property currently
+        benefits from a program in which APS buys excess electricity generated
+        by the solar panels. It's not clear whether new customers will get as generous
+        a buy-back price as we do. 
+        See <a href="https://www.aps.com/en/Residential/Service-Plans/Compare-Service-Plans/Renewable-Energy-Riders">APS Renewable Energy Riders</a>.</p>
+      </p>
+      <p>Mark Riordan &nbsp;November 2024</p>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    });
+</script>
+  </body>
+</html>

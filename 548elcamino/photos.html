@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="elcam.css">
+    <title>Photos</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Photos</h2>
+    <p><a href="constructionphotos.html">Construction photos from January 2003</a></p>
+    <p><a href="https://www.redfin.com/AZ/Sedona/548-El-Camino-Rd-86336/home/124031479">Photos from 2015 listing (Redfin)</a> These photos may have been updated by the time you read this.</p>
+    <!--- Or see https://www.makesedonamyhome.com/listings/view/residential/507144 -->
+    <p><a href="homeexchangephotos.html">Photos from 2023 (before renovation)</a></p>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    });
+</script>
+</body>
+</html>

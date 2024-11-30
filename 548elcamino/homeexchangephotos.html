@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="elcam.css">
+    <title>Photos from 2023 before renovation</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        #photos {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #photos img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+        }
+        .arrow.left {
+            left: 0;
+        }
+        .arrow.right {
+            right: 0;
+        }
+    </style>
+    <script>
+        var images = [
+        "0100HouseFromDriveway.jpg",
+        "0110FrontOfHouseWithNumber.jpg",
+        "0200MainEntranceFromAfar.jpg",
+        "0210MainEntranceFromOutside.jpg",
+        "0220MainDoorFromInside.jpg",
+        "0230Vestibule.jpg",
+        "0310LivingRoomFromBackFeaturingBackOfCouch.jpg",
+        "0320LivingRoomDiningAreaTowardsWindows.jpg",
+        "0330LivingRoomBack1.jpg",
+        "0340LivingRoomBookcaseToRight.jpg",
+        "0350LivingRoomDiningTable1.jpg",
+        "0360LivingRoomSideFeaturingCouchAndBleu2.jpg",
+        "0360LivingRoomStools.jpg",
+        "0410KitchenAndLivingRoomFromFront.jpg",
+        "0420KitchenFromVestibule.jpg",
+        "0430KitchenLength.jpg",
+        "0440KitchenLengthTowardsOven.jpg",
+        "0450KitchenRange.jpg",
+        "0460KitchenSinkAndMicrowave.jpg",
+        "0500MasterBedAndWindows.jpg",
+        "0600StairsFromTop.jpg",
+        "0610StairsFromBottom.jpg",
+        "0710GuestRoomEntranceFromHouse.jpg",
+        "0715GuestRoomBedsFromSide.jpg",
+        "0717GuestRoomSingles.jpg",
+        "0720GuestPatioTowardsTam.jpg",
+        "0725GuestRoomExteriorEntrance.jpg",
+        "0730GuestRoomTowardsGlassDoors.jpg",
+        "0740GuestRoomDeskWithBedsInForeground.jpg",
+        "0745GuestRoomBathroom.jpg",
+        "0750GuestRoomShowerhead.jpg",
+        "0755GuestBathroomVanity.jpg",
+        "0760GuestRoomBathroomExit.jpg",
+        "0780PatioOutsideGuestRoom.jpg",
+        "0900FireEscapeNearGuestDoor.jpg",
+        "0910OutsideWestPath.jpg",
+        ];
+
+        let currentIndex = 0;
+
+        function showPhoto(index) {
+            const photoElement = document.getElementById('current-photo');
+            photoElement.src = `2023images/${images[index]}`;
+        }
+
+        function prevPhoto() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showPhoto(currentIndex);
+        }
+
+        function nextPhoto() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showPhoto(currentIndex);
+        }
+    </script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Photos from 2023 before renovation</h2>
+
+    <div id="photos">
+        <span class="arrow left" onclick="prevPhoto()">&#9664;</span>
+        <img id="current-photo" class="photo-container" src="" alt="Walkthrough Photo">
+        <span class="arrow right" onclick="nextPhoto()">&#9654;</span>
+    </div>
+
+    <script>
+        showPhoto(0);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

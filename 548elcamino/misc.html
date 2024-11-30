@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="elcam.css">
+    <title>Miscellaneous</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Miscellaneous</h2>
+
+    <div>
+        <ul>
+            <li><a href="miscdocs/2024-11-18HalesStucco8127-2YearWarranty.pdf">Stucco 2 Year Warranty Nov 2024</a></li>
+            <li><a href="miscdocs/2024-11-22WaterServiceLineLetter.pdf">Water Service Line Letter Nov 2024</a></li>
+            <li><a href="miscdocs/2024-11-15LennoxProductRegistration.pdf">Lennox Product Registration</a></li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

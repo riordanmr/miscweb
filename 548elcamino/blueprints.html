@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="elcam.css">
+    <title>Blueprints</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Blueprints</h2>
+    <p>These blueprints were drawn by Susanne Roeder, the <a href="https://web.archive.org/web/20180327130555/http://bellacasa-architects.com/">architect</a> and original owner of 548 El Camino.</p>
+    <p>Click on the name of a blueprint to display it.</p>
+    <!-- <div class="container"> -->
+        <a href="blueprintimages/blueprint01.jpg">Site Plan</a><br/>
+        <a href="blueprintimages/blueprint02.jpg">Foundations</a><br/>
+        <a href="blueprintimages/blueprint03.jpg">Plan Lower Level</a><br/>
+        <a href="blueprintimages/blueprint04.jpg">Plan Main Level</a><br/>
+        <a href="blueprintimages/blueprint04a.jpg">Plan Main Level Detail</a><br/>
+        <a href="blueprintimages/blueprint05.jpg">Elevations</a><br/>
+        <a href="blueprintimages/blueprint06.jpg">Sections</a><br/>
+        <a href="blueprintimages/blueprint07.jpg">Floor Framing</a><br/>
+        <a href="blueprintimages/blueprint08.jpg">Roof Framing</a><br/>
+        <a href="blueprintimages/blueprint09.jpg">Electrical Layout Main Level</a><br/>
+        <a href="blueprintimages/blueprint10.jpg">Electrical Layout Lower Level</a><br/>
+        <a href="blueprintimages/blueprint11.jpg">Specifications</a><br/>
+    <!-- </div> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            if (navLinks.style.display === 'block') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="elcam.css">
+    <title>Property lines</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Property lines (approximate)</h2>
+
+    <div id="photos">
+        <img src="miscimages/2015propertylines.jpg" alt="Property Lines Photo">
+    </div>
+    <p>Legal description:  AN IRREG PCL SW4NW4 SE COR APPROX 85'N FROM SE COR SW4NW4 SEC 14- 17-5E CONT .99AC</p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

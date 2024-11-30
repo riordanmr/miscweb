@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="elcam.css">
+    <title>548 El Camino Rd</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <!-- <div class="container"> -->
+        <!-- Your existing content -->
+    <!-- </div> -->
+    <h2>548 El Camino Rd, Sedona AZ  86336</h2>
+    <div>
+        <p>
+        This site contains information about the property at 548 El Camino Rd, Sedona AZ  86336.
+        Use the navigation links above to access utility bills, blueprints, etc.
+        </p>
+        <p>The information here is believed to be accurate, but is not guaranteed.
+            If certain information is critical to you, please verify
+            the information before taking any drastic steps.
+        </p>
+        <p><em>Mark Riordan &nbsp; September 2024</em></p>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            if (navLinks.style.display === 'block') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

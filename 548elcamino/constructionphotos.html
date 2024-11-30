@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="elcam.css">
+    <title>Walkthrough photos</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        #photos {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #photos img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+        }
+        .arrow.left {
+            left: 0;
+        }
+        .arrow.right {
+            right: 0;
+        }
+    </style>
+    <script>
+        var images = [
+        "DSCN0025.JPG",
+        "DSCN0026.JPG",
+        "DSCN0027.JPG",
+        "DSCN0028.JPG",
+        "DSCN0061.JPG",
+        "DSCN0062.JPG",
+        "DSCN0240.JPG",
+        "DSCN0242.JPG",
+        "DSCN0245.JPG",
+        "DSCN0276.JPG",
+        "DSCN0277.JPG",
+        "DSCN0279.JPG",
+        "DSCN0676.JPG",
+        "DSCN0677.JPG",
+        "DSCN0678.JPG",
+        "DSCN0679.JPG",
+        "DSCN0680.JPG",
+        "DSCN0681.JPG",
+        "DSCN0682.JPG",
+        "DSCN0773.JPG",
+        "DSCN0774.JPG",
+        "DSCN0775.JPG",
+        "DSCN0776.JPG",
+        "DSCN0777.JPG",
+        "DSCN0778.JPG",
+        "DSCN0779.JPG",
+        "DSCN0781.JPG",
+        "DSCN0782.JPG",
+        "DSCN0783.JPG",
+        "DSCN0785.JPG",
+        "DSCN0786.JPG",
+        "DSCN0787.JPG",
+        "DSCN0788.JPG",
+        "DSCN0789.JPG",
+        "DSCN0790.JPG",
+        "DSCN0793.JPG",
+        "DSCN0796.JPG",
+        ];
+
+        let currentIndex = 0;
+
+        function showPhoto(index) {
+            const photoElement = document.getElementById('current-photo');
+            photoElement.src = `2003images/${images[index]}`;
+        }
+
+        function prevPhoto() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showPhoto(currentIndex);
+        }
+
+        function nextPhoto() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showPhoto(currentIndex);
+        }
+    </script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Construction photos from January 2003</h2>
+
+    <div id="photos">
+        <span class="arrow left" onclick="prevPhoto()">&#9664;</span>
+        <img id="current-photo" class="photo-container" src="" alt="Walkthrough Photo">
+        <span class="arrow right" onclick="nextPhoto()">&#9654;</span>
+    </div>
+
+    <script>
+        showPhoto(0);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>
