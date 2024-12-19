@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="elcam.css">
+    <title>Updates</title>
+    <style>
+        .colhead {
+            font-weight: bold;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Updates</h2>
+
+    <div>
+        <table style="border-collapse: collapse;">
+            <tr><td class="colhead">Year</td><td class="colhead">Item</td></tr>
+            <tr><td>2016</td><td>Roof (commercial-grade PVC from Hale's Roofing)</td></tr>
+            <tr><td>2016</td><td>Water softener</td></tr>
+            <tr><td>2017</td><td>Irrigation system</td></tr>
+            <tr><td>2017</td><td>Downstairs washer/dryer </td></tr>
+            <tr><td>2017</td><td>Paint (exterior)</td></tr>
+            <tr><td>2017</td><td>Upstairs washer and dryer (LG)</td></tr>
+            <tr><td>2020</td><td>Flooring in mother-in-law suite (Italian porcelain tile; Happy Floors brand)</td></tr>
+            <tr><td>2020</td><td>Solar panels (SunPower; 5.8 kW total)</td></tr>
+            <tr><td>2020</td><td>Upstairs and downstairs dishwashers (GE)</td></tr>
+            <tr><td>2021</td><td>Water heater</td></tr>
+            <tr><td>2022</td><td>Deck near kitchen rebuilt</td></tr>
+            <tr><td>2022</td><td>Fire pit in backyard, with propane unit</td></tr>
+            <tr><td>2022</td><td>Glass in sliding doors in lower level living room </td></tr>
+            <tr><td>2022 - 2024</td><td>All smoke detectors</td></tr>
+            <tr><td>2023</td><td>Blinds (Hunter Douglas) and drapes (Carole Fabrics) in upstairs master, downstairs mother-in-law suite, and downstairs guest room</td></tr>
+            <tr><td>2023</td><td>Hot tub</td></tr>
+            <tr><td>2023</td><td>Irrigation system controller (Hunter PRO-C)</td></tr>
+            <tr><td>2024</td><td>Upstairs cooktop and vent hood (Monogram)</td></tr>
+            <tr><td>2024</td><td>Both furnaces and air conditioners (Lennox)</td></tr>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>
