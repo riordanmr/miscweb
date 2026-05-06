@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    /* margin: 0; */
+    /* padding: 0; */
+    /* background-color: #f4f4f4; */
+}
+
+body a {
+    text-decoration: none;
+}
+
+td, th {
+    text-align: left;
+    vertical-align: top;
+}
+
+.amount{
+    text-align: right;
+}
+
+/* MRR */
+#branding {
+    /* display: flex; */
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+/* Responsive Navigation */
+.nav-container {
+    /* margin-top: 13px;
+    margin-left: 3px; */
+    /*margin: 1px;*/
+    padding: 3px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
+}
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.link-style {
+    color: blue;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.external-link {
+    margin: 0.2em 0;
+}
+
+@media (max-width: 768px) {
+}
