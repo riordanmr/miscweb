@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="applewood.css">
+    <link rel="icon" type="image/png" href="photos/favicon.png">
+    <title>Listing photos from March 2025</title>
+    <style>
+        body, html {
+            /* margin: 0; */
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #photos {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #photos img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+        }
+        .arrow.left {
+            left: 0;
+        }
+        .arrow.right {
+            right: 0;
+        }
+        .index-center {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+    </style>
+    <script>
+        var images = [
+            "2025_7111_applewood_dr_web-001.jpg",
+            "2025_7111_applewood_dr_web-002.jpg",
+            "2025_7111_applewood_dr_web-003.jpg",
+            "2025_7111_applewood_dr_web-004.jpg",
+            "2025_7111_applewood_dr_web-005.jpg",
+            "2025_7111_applewood_dr_web-006.jpg",
+            "2025_7111_applewood_dr_web-007.jpg",
+            "2025_7111_applewood_dr_web-008.jpg",
+            "2025_7111_applewood_dr_web-009.jpg",
+            "2025_7111_applewood_dr_web-010.jpg",
+            "2025_7111_applewood_dr_web-011.jpg",
+            "2025_7111_applewood_dr_web-012.jpg",
+            "2025_7111_applewood_dr_web-013.jpg",
+            "2025_7111_applewood_dr_web-014.jpg",
+            "2025_7111_applewood_dr_web-015.jpg",
+            "2025_7111_applewood_dr_web-016.jpg",
+            "2025_7111_applewood_dr_web-017.jpg",
+            "2025_7111_applewood_dr_web-018.jpg",
+            "2025_7111_applewood_dr_web-019.jpg",
+            "2025_7111_applewood_dr_web-020.jpg",
+            "2025_7111_applewood_dr_web-021.jpg",
+            "2025_7111_applewood_dr_web-022.jpg",
+            "2025_7111_applewood_dr_web-023.jpg",
+            "2025_7111_applewood_dr_web-024.jpg",
+            "2025_7111_applewood_dr_web-025.jpg",
+            "2025_7111_applewood_dr_web-026.jpg",
+            "2025_7111_applewood_dr_web-027.jpg",
+            "2025_7111_applewood_dr_web-028.jpg",
+            "2025_7111_applewood_dr_web-029.jpg",
+            "2025_7111_applewood_dr_web-030.jpg",
+            "2025_7111_applewood_dr_web-031.jpg",
+            "2025_7111_applewood_dr_web-032.jpg",
+            "2025_7111_applewood_dr_web-033.jpg",
+            "2025_7111_applewood_dr_web-034.jpg",
+            "2025_7111_applewood_dr_web-035.jpg",
+            "2025_7111_applewood_dr_web-036.jpg",
+            "2025_7111_applewood_dr_web-037.jpg",
+            "2025_7111_applewood_dr_web-038.jpg",
+            "2025_7111_applewood_dr_web-039.jpg",
+            "2025_7111_applewood_dr_web-040.jpg",
+            "2025_7111_applewood_dr_web-041.jpg",
+            "2025_7111_applewood_dr_web-042.jpg",
+            "2025_7111_applewood_dr_web-043.jpg",
+            "2025_7111_applewood_dr_web-044.jpg",
+            "2025_7111_applewood_dr_web-045.jpg",
+            "2025_7111_applewood_dr_web-046.jpg",
+            "2025_7111_applewood_dr_web-047.jpg",
+            "2025_7111_applewood_dr_web-048.jpg",
+            "2025_7111_applewood_dr_web-049.jpg",
+            "2025_7111_applewood_dr_web-050.jpg",
+            "2025_7111_applewood_dr_web-051.jpg",
+            "2025_7111_applewood_dr_web-052.jpg",
+            "2025_7111_applewood_dr_web-053.jpg",
+            "2025_7111_applewood_dr_web-054.jpg",
+            "2025_7111_applewood_dr_web-055.jpg",
+            "2025_7111_applewood_dr_web-056.jpg",
+            "2025_7111_applewood_dr_web-057.jpg",
+            "2025_7111_applewood_dr_web-058.jpg",
+            "2025_7111_applewood_dr_web-059.jpg",
+            "2025_7111_applewood_dr_web-060.jpg",
+            "2025_7111_applewood_dr_web-061.jpg",
+            "2025_7111_applewood_dr_web-062.jpg",
+            "2025_7111_applewood_dr_web-063.jpg",
+            "2025_7111_applewood_dr_web-064.jpg",
+            "2025_7111_applewood_dr_web-065.jpg",
+            "2025_7111_applewood_dr_web-066.jpg",
+            "2025_7111_applewood_dr_web-067.jpg",
+            "2025_7111_applewood_dr_web-068.jpg",
+            "2025_7111_applewood_dr_web-069.jpg",
+            "2025_7111_applewood_dr_web-070.jpg",
+            "2025_7111_applewood_dr_web-071.jpg",
+            "2025_7111_applewood_dr_web-072.jpg",
+            "2025_7111_applewood_dr_web-073.jpg",
+            "2025_7111_applewood_dr_web-074.jpg",
+            "2025_7111_applewood_dr_web-075.jpg",
+            "2025_7111_applewood_dr_web-076.jpg",
+            "2025_7111_applewood_dr_web-077.jpg",
+            "2025_7111_applewood_dr_web-078.jpg",
+            "2025_7111_applewood_dr_web-079.jpg",
+            "2025_7111_applewood_dr_web-080.jpg",
+            "2025_7111_applewood_dr_web-081.jpg",
+            "2025_7111_applewood_dr_web-082.jpg",
+            "2025_7111_applewood_dr_web-083.jpg",
+            "2025_7111_applewood_dr_web-084.jpg",
+            "2025_7111_applewood_dr_web-085.jpg"
+        ];
+
+        let currentIndex = 0;
+
+        function showPhoto(index) {
+            const photoElement = document.getElementById('current-photo');
+            photoElement.src = `photos/2025_7111_applewood_dr_web/${images[index]}`;
+            //alert(photoElement.src)
+            const photoIndexElement = document.getElementById('photo-index');
+            photoIndexElement.textContent = `${index + 1} / ${images.length}`;
+        }
+
+        function prevPhoto() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showPhoto(currentIndex);
+        }
+
+        function nextPhoto() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showPhoto(currentIndex);
+        }
+    </script>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Listing photos taken by Martin Menocal in March 2025</h2>
+
+    <div id="photos">
+        <span class="arrow left" onclick="prevPhoto()">&#9664;</span>
+        <img id="current-photo" src="" alt="Listing Photo">
+        <span class="arrow right" onclick="nextPhoto()">&#9654;</span>
+    </div>
+    <div id="photo-index" class="index-center"></div>
+
+    <script>
+        showPhoto(0);
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

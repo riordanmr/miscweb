@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="applewood.css">
+    <link rel="icon" type="image/png" href="photos/favicon.png">
+    <title>7111 Applewood</title>
+    <style>
+        .myquote {
+            font-style: italic;
+            color: #404040;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>7111 Applewood Dr, Madison, WI  53719</h2>
+    <div>
+        <p>
+        This site contains information about the property at 7111 Applewood Dr, Madison, WI  53719.
+        After I collect enough information about this unique property, I hope to write a book about it.
+        </p>
+        <p>
+        Use the navigation links above to access various parts of the site.
+        </p>
+        <p>Here's some realtor-speak from 2025 to get you started:</p>
+        <blockquote class="myquote">This beautifully-styled Mid-Century Modern offers a wooded 0.90-acre retreat in Middleton. 
+            Thoughtfully crafted by renowned architect John Bruni, it showcases 
+            a gorgeous 2+ story living room with breathtaking floor-to-ceiling windows and 
+            dramatic natural stone fireplace. 
+            Recently-updated kitchen and baths from Denise Quade Design provide perfectly balanced modern 
+            elegance and functional design, while its open-concept, minimalist interior harmoniously blends 
+            the indoors and outdoors. The relaxing sunroom, expansive deck, and 2 inviting, stylish 
+            conversation pits enhance everyday living and entertaining. 
+            An intimate lower level features a cozy family room with 2nd fireplace, reading nook, 
+            music room, office, additional bedrooms and baths.</blockquote>
+        <p><em>Mark Riordan &nbsp; September 2025</em></p>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

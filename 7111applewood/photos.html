@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="applewood.css">
+    <link rel="icon" type="image/png" href="photos/favicon.png">
+    <title>7111 Applewood Photos</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Photos</h2>
+    <div>
+        <p class="external-link"><a href="listingphotos.html">Listing photos taken by Martin Menocal in March 2025</a></p>
+        <!--
+        <p class="external-link"><a href="https://my.matterport.com/show/?m=DbKDs741mp8">3D Tour (may be gone by the time you see this)</a></p>
+        -->
+        <!--
+        <p><a href="https://www.realtor.com/realestateandhomes-detail/M7803141382">Photos on Realtor.com</a></p>
+        <p><a href="walkthrough.html">Pre-closing walkthrough, Oct 17, 2024</a></p>
+        <p><a href="images20241127.html">Photos taken by JC on Nov 27, 2024</a></p>
+        -->
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

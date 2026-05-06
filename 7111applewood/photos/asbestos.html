@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asbestos Removed Video Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .video-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .controls-info {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .controls-info h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .controls-info ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .error-message {
+            background-color: #ffe6e6;
+            color: #d63031;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border-left: 4px solid #d63031;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Asbestos Removed Video</h1>
+        
+        <div class="video-container">
+            <video controls width="800" height="600" preload="metadata">
+                <source src="asbestosremoved.mov" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                <source src="asbestosremoved.mov" type="video/quicktime">
+                <source src="asbestosremoved.mov" type="video/mp4">
+                <source src="asbestosremoved.mp4" type="video/mp4">
+                <p class="error-message">
+                    Your browser doesn't support HTML5 video. 
+                    <a href="asbestosremoved.mov">Download the video</a> instead.
+                </p>
+            </video>
+        </div>
+        
+        <div class="controls-info">
+            <h3>Video Controls:</h3>
+            <ul>
+                <li><strong>Play/Pause:</strong> Click the play button or press spacebar</li>
+                <li><strong>Volume:</strong> Use the volume slider or up/down arrow keys</li>
+                <li><strong>Seek:</strong> Click on the progress bar or use left/right arrow keys</li>
+                <li><strong>Fullscreen:</strong> Click the fullscreen button or press F key</li>
+                <li><strong>Speed:</strong> Right-click on video for playback speed options</li>
+            </ul>
+        </div>
+        
+        <div class="error-message" style="display: none;" id="errorMessage">
+            <strong>Note:</strong> Make sure the video file "asbestosremoved.mov" is in the same directory as this HTML file.
+            If you're having trouble playing the video, try converting it to MP4 format for better browser compatibility.
+        </div>
+    </div>
+
+    <script>
+        // Show error message if video fails to load
+        const video = document.querySelector('video');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        // Debug logging
+        console.log('Video element found:', video);
+        
+        video.addEventListener('loadstart', function() {
+            console.log('Video loading started');
+        });
+        
+        video.addEventListener('loadeddata', function() {
+            console.log('Video data loaded');
+        });
+        
+        video.addEventListener('canplay', function() {
+            console.log('Video can start playing');
+        });
+        
+        video.addEventListener('error', function(e) {
+            console.error('Video error:', e);
+            console.error('Video error code:', video.error ? video.error.code : 'unknown');
+            console.error('Video error message:', video.error ? video.error.message : 'unknown');
+            errorMessage.style.display = 'block';
+        });
+        
+        video.addEventListener('stalled', function() {
+            console.log('Video playback stalled');
+        });
+        
+        video.addEventListener('waiting', function() {
+            console.log('Video waiting for data');
+        });
+        
+        // Test if file exists
+        fetch('asbestosremoved.mov', {method: 'HEAD'})
+            .then(response => {
+                if (!response.ok) {
+                    console.error('Video file not found or not accessible');
+                    errorMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error checking video file:', error);
+            });
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName.toLowerCase() !== 'input') {
+                switch(e.code) {
+                    case 'Space':
+                        e.preventDefault();
+                        if (video.paused) {
+                            video.play().catch(error => {
+                                console.error('Error playing video:', error);
+                            });
+                        } else {
+                            video.pause();
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        video.currentTime -= 10;
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        video.currentTime += 10;
+                        break;
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        video.volume = Math.min(1, video.volume + 0.1);
+                        break;
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        video.volume = Math.max(0, video.volume - 0.1);
+                        break;
+                    case 'KeyF':
+                        e.preventDefault();
+                        if (video.requestFullscreen) {
+                            video.requestFullscreen();
+                        }
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

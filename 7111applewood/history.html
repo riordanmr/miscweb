@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="applewood.css">
+    <link rel="icon" type="image/png" href="photos/favicon.png">
+    <title>History</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>History</h2>
+    <p>Here's a brief history of the property. I'm working on getting more.</p>
+
+<table>
+    <tr>
+        <th>Year</th>
+        <th>Event</th>
+    </tr>
+    <tr>
+        <td>1966</td>
+        <td>Original developer founded Applewood Hill Homes Association: Regency Hill 
+            (Floyd W. McBurney Sr., President)</td>
+    </tr>
+    <tr>
+        <td>1972</td>
+        <td>Architect John Bruni designs the house; blueprints show the owners to be
+            Mr. and Mrs. Peter O Johnson
+        </td>
+    <tr>
+        <td>1974?</td>
+        <td>Construction completed</td>
+    </tr>
+    <tr>
+        <td>1983</td>
+        <td>Peter O. Johnson and Martha B. Johnson apply for a permit for private sewage 
+            and are the owners at this time</td>
+    </tr>
+    <tr>
+        <td>1988</td>
+        <td>Applewood covenants are renewed for another 24 years. 
+            (The end of the first term was 1990). 
+            At this time, the owners of Lot 2 (i.e. 7111) are Anthony Merliss and Ellen Merliss. 
+        </td>
+    </tr>
+    <tr>
+        <td>~1992</td>
+        <td>Purchased by Weldon and Caroln Shelp</td>
+    </tr>
+    <tr>
+        <td>2014</td>
+        <td>Sold to Chad E Fickett by Weldon D Shelp and Carolyn H Shelp on 01/06/2014</td>
+    </tr>
+    <tr>
+        <td>2022</td>
+        <td>Sold to Melissa M Papineau and William E Papineau by Chad E Fickett on 05/06/2022</td>
+    </tr>
+    <tr>
+        <td>2025</td>
+        <td>Sold to Mark R Riordan and Tamara J Riordan by Melissa M Papineau and William E Papineau on 07/23/2025</td>
+    </tr>
+</table>
+
+<p>Thanks to Jeff Drengler for his assistance in compiling this history.</p>
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

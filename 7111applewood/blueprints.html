@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="applewood.css">
+    <link rel="icon" type="image/png" href="photos/favicon.png">
+    <title>Blueprints</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>Blueprints</h2>
+    <p>These blueprints came with the house, and appear to be the original blueprints from 1972.
+        (The house is said to have been built in 1974.)
+        </p>
+    <p>Click on the name of a blueprint to display it.
+    </p>
+    <!-- <div class="container"> -->
+        <a href="blueprintimages/010-blueprint-7w-elevation-detail.jpg">Elevation detail</a><br/>
+        <a href="blueprintimages/020-blueprint-2-floor-plan-elevation-89-87-rec-room.jpg">Floor plan elevation 89-87 rec room</a><br/>
+        <a href="blueprintimages/030-blueprint-3-floor-plan-elevation-97-95.jpg">Floor plan elevation 97-95</a><br/>
+        <a href="blueprintimages/040-blueprint-4-floor-plan-elevation-103.jpg">Floor plan elevation 103</a><br/>
+        <a href="blueprintimages/050-blueprint-5-light-shelf-framing-detail.jpg">Light shelf framing detail</a><br/>
+        <a href="blueprintimages/060-blueprint-6-middle-section-of-elevation.jpg">Middle section of elevation</a><br/>
+        <a href="blueprintimages/070-blueprint-7-elevation-levels-detail.jpg">Elevation levels detail</a><br/>
+        <a href="blueprintimages/090-blueprint-outer-shipping-label-2013.jpg">Outer shipping label from 2013</a><br/>
+        <a href="blueprintimages/100-blueprint-inner-shipping-label-irrelevant.jpg">Inner shipping label (probably irrelevant)</a><br/>
+    <!-- </div> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

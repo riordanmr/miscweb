@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="applewood.css">
+    <link rel="icon" type="image/png" href="photos/favicon.png">
+    <title>External links</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <h2>External links</h2>
+    <p>These links point to external resources related to the house.
+        </p>
+
+    <p class="external-link"><a href="https://www.zillow.com/homedetails/7111-Applewood-Dr-Madison-WI-53719/40163999_zpid/?view=public">Zillow listing</a></p>
+    <p class="external-link"><a href="https://www.redfin.com/WI/Madison/7111-Applewood-Dr-53719/home/57771933">Redfin listing</a> <em>(Redfin retains photos longer than Zillow)</em></p>
+    <p class="external-link"><a href="https://www.dwell.com/article/midcentury-cabin-conversation-pit-john-bruni-middleton-wisconsin-real-estate-52ccdf83">Article in Dwell (!)</a></p>
+    <p class="external-link"><a href="https://www.facebook.com/zillowgonewild/posts/pfbid0uq75TWeDmkFgBMpsanuD9CZNj7mVcikgdmooTogRHWgVJPcpnpf4oSfmAPm6JFA4l">Zillow Gone Wild Facebook page</a> on 7111 Applewood, though apparently the house didn't make the TV show</p>
+    <p class="external-link"><a href="https://theweek.com/culture-life/property/homes-with-conversation-pits">Mention in an article in The Week</a></p>
+    <p class="external-link"><a href="https://movingtomadisonre.com/sold-listing/detail/1124006247/7111_Applewood_Dr-Madison-WI">A previous listing, which sold on 05/06/2022</a></p>
+    <p class="external-link"><a href="https://accessdane.danecounty.gov/070827460124">Dane County accessor's website entry</a> <em>(7111 Applewood is actually in Town of Middleton (not City of Middleton!), even though its postal address is in Madison)</em></p>
+    <p class="external-link"><a href="https://themonroetimes.com/monroe-times-obituaries/john-gordon-bruni/">2024 bio/obituary of architect John Bruni</a></p>
+    <p class="external-link"><a href="https://www.amazon.com/LIVING-BEYOND-PAIN-JOHN-BRUNI/dp/B0CNH2FR5H">2023 book by John Bruni about holistic pain management</a></p>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>
