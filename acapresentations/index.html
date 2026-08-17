@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>ACA Presentations</title>
+<style>
+    body {
+        font-family: sans-serif;
+    }
+    a { color: #0077cc; text-decoration: underline; cursor: pointer; }
+
+   #videocontainer {
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background:black;
+      z-index: 9;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    #fullvideo {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      background: black;
+      display: block;
+    }
+    #closebtn {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      border: none;
+      font-size: 2em;
+      cursor: pointer;
+      z-index: 10;
+      padding: 0 .4em;
+      border-radius: 5px;
+    }
+    #closebtn:focus { outline: 2px solid #5dd; }
+
+</style>
+</head>
+<body>
+<h1>ACA Presentations</h1>
+<p>Here's a list of presentations I've made for the Sedona 
+    Adult Children of Alcoholics and Dysfunctional Families group.
+</p>
+<p>The list is sorted roughly chronologically, with the most recent offerings first.
+    These tend to be the most technically polished.
+</p>
+
+<ul id="videolist">
+    <li>Getting In Our Bodies <a class="playvid" data-src="Getting In Our Bodies.mp4">Video</a></li>
+    <li>Feelings and Healthy Relationships <a class="playvid" data-src="Feelings and Healthy Relationships.mp4">Video</a></li>
+    <li>ACA Difficulty Having Fun <a class="playvid" data-src="ACA difficulty having fun.mp4">Video</a></li>
+    <li>If You Really Knew Me 2 <a class="playvid" data-src="If You Really Knew Me 2.mp4">Video</a></li>
+    <li>Shame 2 <a class="playvid" data-src="shame2.mp4">Video</a></li>
+    <li>Judging Without Mercy <a class="playvid" data-src="JudgingWithoutMercy.mp4">Video</a></li>
+    <li>ACA Super-Responsible p2 <a href="superresp-p2">Website</a></li>
+    <li>ACA Super-Responsible p1 <a href="ACA Super-responsible p1.pdf">PDF</a></li>
+    <li>Handling Conflict <a class="playvid" data-src="HandlingConflict.mp4">Video</a></li>
+    <li>ACoA Guess at What Normal Is 2 <a class="playvid" data-src="ACoA Guess at What Normal Is 2.mp4">Video</a></li>
+    <li>ACA Feel Different From Other People <a class="playvid" data-src="ACAFeelDifferentFromOtherPeople.mp4">Video</a></li>
+    <li>Seeking Approval <a class="playvid" data-src="SeekingApproval.mp4">Video</a></li>
+    <li>ACoA In School <a class="playvid" data-src="ACoAInSchool.mp4">Video</a></li>
+    <li>Camel Fable (People-Pleasing) <a class="playvid" data-src="CamelFable-1k.mp4">Video</a></li>
+    <li>Step 4 <a class="playvid" data-src="invideoStep4Try3.mp4">Video</a></li>
+    <li>Image Association Exercise <a href="imageassoc/">Website</a></li>
+    <li>Illustrated "The Problem" and "The Solution" <a href="theproblem/">Website</a></li>
+    <li>Perfectionism <a class="playvid" data-src="FredSlacksOff.mp4">Video</a></li>
+</ul>
+
+<div id="videocontainer">
+  <button id="closebtn" title="Back to list">&times;</button>
+  <video id="fullvideo" controls autoplay></video>
+</div>
+
+<script>
+const vids = document.querySelectorAll('.playvid');
+const container = document.getElementById('videocontainer');
+const fullvideo = document.getElementById('fullvideo');
+const closebtn = document.getElementById('closebtn');
+const videolist = document.getElementById('videolist');
+
+vids.forEach(link => {
+  link.addEventListener('click', function(event) {
+    const src = link.getAttribute('data-src');
+    if (src.toLowerCase().endsWith('.mp4')) {
+      event.preventDefault();
+      fullvideo.src = src;
+      container.style.display = 'flex';
+      videolist.style.display = 'none';
+      fullvideo.focus();
+      fullvideo.play();
+    } else {
+      // Allow PDFs and other links to work normally
+      window.open(src, '_blank');
+    }
+  });
+});
+
+// Hide video and show list
+function closeVideo() {
+  fullvideo.pause();
+  container.style.display = 'none';
+  videolist.style.display = '';
+  fullvideo.src = "";
+}
+
+closebtn.onclick = closeVideo;
+fullvideo.onclick = closeVideo;  // Click video to close
+
+document.addEventListener('keydown', function(e) {
+  if (container.style.display === 'flex' && (e.key === 'Escape' || e.key === 'q')) closeVideo();
+});
+</script>
+
+<p>Mark R</p>
+</body>
+</html>
